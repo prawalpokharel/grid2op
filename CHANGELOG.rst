@@ -109,6 +109,11 @@ Native multi agents support:
   took it, without any pmax or ramp check: now the dispatch respects them and the episode ends with an
   `ImpossibleRedispatching` error if the generators cannot follow. Grids without redispatching data and without
   storage units are not affected.
+- [ADDED] `grid2op.Opponent.CriticalLineOpponent`: an opponent that disconnects the attackable line with the
+  highest structural criticality score on the current topology (edge betweenness, or a centrality-entropy
+  index with an optional per-line declared criticality). Its attack times follow the `WeightedRandomOpponent`
+  rule but come from a dedicated random generator, so opponents with different scores attack at the same
+  steps of a seeded episode.
 
 [1.12.6] - 2026-10-13
 -----------------------
